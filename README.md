@@ -110,19 +110,13 @@ if err != nil {
 ## Contributing
 
 Contributions are welcome! Please open an issue to discuss proposed changes before submitting a pull request.
-
+---
 ## License
 
 This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
 
 ---
 
-<div align="center">
-
-**Made with ❤️ for the developer community**
-
-⭐ **Star us on GitHub** — it motivates us to keep improving!
+## Copyright
 
 Copyright © 2026 Jonas Kaninda
-
-</div>
