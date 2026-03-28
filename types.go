@@ -42,7 +42,7 @@ type SendTemplateEmailRequest struct {
 	// TemplateID identifies the template by its numeric ID (preferred).
 	TemplateID *uint `json:"template_id,omitempty"`
 	// Template identifies the template by name (fallback when TemplateID is not provided).
-	Template string `json:"template,omitempty"`
+	Template     string         `json:"template,omitempty"`
 	Language     string         `json:"language,omitempty"`
 	From         string         `json:"from,omitempty"`
 	To           []string       `json:"to"`
@@ -57,7 +57,7 @@ type BatchRequest struct {
 	// TemplateID identifies the template by its numeric ID (preferred).
 	TemplateID *uint `json:"template_id,omitempty"`
 	// Template identifies the template by name (fallback when TemplateID is not provided).
-	Template string `json:"template,omitempty"`
+	Template   string           `json:"template,omitempty"`
 	Language   string           `json:"language,omitempty"`
 	From       string           `json:"from,omitempty"`
 	Recipients []BatchRecipient `json:"recipients"`
