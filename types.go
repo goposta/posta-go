@@ -33,6 +33,11 @@ type SendEmailRequest struct {
 	ListUnsubscribeURL  string            `json:"list_unsubscribe_url,omitempty"`
 	ListUnsubscribePost bool              `json:"list_unsubscribe_post,omitempty"`
 	SendAt              *time.Time        `json:"send_at,omitempty"`
+	// List (optional) auto-adds the recipient to a named subscriber list,
+	// creating it on first use. Per-list opt-outs are honored: a suppressed
+	// recipient causes the send to be skipped. Only applied when To has a
+	// single address.
+	List string `json:"list,omitempty"`
 }
 
 // SendTemplateEmailRequest is the request body for sending a template email.
@@ -81,6 +86,44 @@ type Attachment struct {
 type SendResponse struct {
 	ID     string `json:"id"`
 	Status string `json:"status"`
+	// List auto-subscribe outcome — populated only when the request set `list`.
+	// Skipped=true indicates the email was NOT queued because the recipient is
+	// suppressed on the list or their global status is not `subscribed`. Inspect
+	// SkippedReason for the precise cause; the HTTP status is still 200.
+	ListID        *uint  `json:"list_id,omitempty"`
+	SubscriberID  *uint  `json:"subscriber_id,omitempty"`
+	ListCreated   bool   `json:"list_created,omitempty"`
+	MemberAdded   bool   `json:"member_added,omitempty"`
+	Skipped       bool   `json:"skipped,omitempty"`
+	SkippedReason string `json:"skipped_reason,omitempty"`
+}
+
+// ListUnsubscribeRequest is the body for list-scoped unsubscribe/resubscribe.
+type ListUnsubscribeRequest struct {
+	Email  string `json:"email"`
+	Reason string `json:"reason,omitempty"`
+}
+
+// ListSubscribeRequest is the body for the explicit list subscribe endpoint.
+// The list is identified by name (created on first use); any prior
+// list-scoped opt-out for this (list, email) is cleared.
+type ListSubscribeRequest struct {
+	Email string `json:"email"`
+	Name  string `json:"name,omitempty"`
+	List  string `json:"list"`
+}
+
+// ListSubscribeResponse is the result of a subscribe / unsubscribe /
+// resubscribe call. Action is one of "subscribed", "unsubscribed",
+// "resubscribed".
+type ListSubscribeResponse struct {
+	ListID            uint   `json:"list_id"`
+	SubscriberID      uint   `json:"subscriber_id"`
+	Email             string `json:"email"`
+	Action            string `json:"action"`
+	ListCreated       bool   `json:"list_created,omitempty"`
+	SubscriberCreated bool   `json:"subscriber_created,omitempty"`
+	MemberAdded       bool   `json:"member_added,omitempty"`
 }
 
 // BatchResponse is the response after a batch send.

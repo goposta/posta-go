@@ -57,6 +57,27 @@ func (c *Client) RetryEmail(emailID string) (*SendResponse, error) {
 	return post[SendResponse](c, "/emails/"+emailID+"/retry", nil)
 }
 
+// SubscribeToList adds an email to a named list via API key. The list is
+// created on first use. Any prior list-scoped opt-out for the same
+// (list, email) is cleared. Idempotent.
+func (c *Client) SubscribeToList(req *ListSubscribeRequest) (*ListSubscribeResponse, error) {
+	return post[ListSubscribeResponse](c, "/subscriber-lists/subscribe", req)
+}
+
+// UnsubscribeFromList opts an email out of a specific list. Idempotent; does
+// not change the subscriber's global status. Returns the subscriber and the
+// action taken.
+func (c *Client) UnsubscribeFromList(listID uint, req *ListUnsubscribeRequest) (*ListSubscribeResponse, error) {
+	return post[ListSubscribeResponse](c, fmt.Sprintf("/subscriber-lists/%d/unsubscribe", listID), req)
+}
+
+// ResubscribeToList reverses a list-scoped opt-out and (for static lists)
+// re-adds the subscriber. Idempotent.
+func (c *Client) ResubscribeToList(listID uint, email string) (*ListSubscribeResponse, error) {
+	return post[ListSubscribeResponse](c, fmt.Sprintf("/subscriber-lists/%d/resubscribe", listID), map[string]string{"email": email})
+}
+
+
 func (e *APIError) Error() string {
 	if e.Info != nil && e.Info.Message != "" {
 		return fmt.Sprintf("posta: %d %s", e.StatusCode, e.Info.Message)
