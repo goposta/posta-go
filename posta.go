@@ -77,7 +77,6 @@ func (c *Client) ResubscribeToList(listID uint, email string) (*ListSubscribeRes
 	return post[ListSubscribeResponse](c, fmt.Sprintf("/subscriber-lists/%d/resubscribe", listID), map[string]string{"email": email})
 }
 
-
 func (e *APIError) Error() string {
 	if e.Info != nil && e.Info.Message != "" {
 		return fmt.Sprintf("posta: %d %s", e.StatusCode, e.Info.Message)
