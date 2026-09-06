@@ -1,2 +1,6 @@
-github.com/jkaninda/kitoko v0.0.2 h1:T3oI1J3LFhYCbNt2T9qQ4AVYVgdaAyhlhgiVLKigON4=
-github.com/jkaninda/kitoko v0.0.2/go.mod h1:R5qfsElDor8iWjWAKXKB4BOtOz2DAO8wLgRMhLbfeAM=
+github.com/jkaninda/okapi v0.11.0 h1:73Ke2BJF5TTYG0DLKkFnSKrAP87bzErRQ6tOxF+DHF4=
+github.com/jkaninda/okapi v0.11.0/go.mod h1:/Bt3U6MpUaGdb7iPKjyRpqFhv9/AIj/SReNbRjGQ1mw=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
+gopkg.in/yaml.v3 v3.0.1/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
