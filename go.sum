@@ -1,6 +1,6 @@
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
-github.com/jkaninda/okapi v1.0.0 h1:dVSVkwxuVD44t76fZwpkNuVOm+XH9mZiiLSa6bCgi+g=
-github.com/jkaninda/okapi v1.0.0/go.mod h1:s4DJuYKRgtYzOUY5DwR/LVwkIo+mR4z5qmUwnrseQ9k=
+github.com/jkaninda/okapi v1.1.0 h1:xEwUiWVjMpWmTjhnB/YMCjDnqZ5a0fvkVUCNFxW+ejU=
+github.com/jkaninda/okapi v1.1.0/go.mod h1:Ru9pmaFnmfR9DIAVLrm/O5lq313f12uFZ0alpk1RikU=
 github.com/kr/pretty v0.2.1/go.mod h1:ipq/a2n7PKx3OHsz4KJII5eveXtPO4qwEXGdVfWzfnI=
 github.com/kr/pretty v0.3.1 h1:flRD4NNwYAUpkphVc1HcthR4KEIFJ65n8Mw5qdRn3LE=
 github.com/kr/pretty v0.3.1/go.mod h1:hoEshYVHaxMs3cyo3Yncou5ZscifuDolrwPKZanG3xk=
