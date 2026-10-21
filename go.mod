@@ -1,8 +1,8 @@
 module github.com/goposta/posta-go
 
-go 1.25.0
+go 1.26.0
 
-require github.com/jkaninda/okapi v1.0.0
+require github.com/jkaninda/okapi v1.1.0
 
 require (
 	github.com/kr/text v0.2.0 // indirect
